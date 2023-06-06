@@ -1,8 +1,19 @@
 import HeroBanner from "@/components/HeroBanner";
 import Wrapper from "@/components/Wrapper";
 import ProductCard from "@/components/ProductCard";
+import { useState, useEffect } from "react";
+import { fetchDataFromApi } from "@/utils/api";
 
 export default function Home() {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    fetchProducts()
+  }, [])
+
+  const fetchProducts = async () => {
+    const {data} = await fetchDataFromApi('/api/products')
+    setData(data)
+  }
   return (
     <main>
       <HeroBanner />
