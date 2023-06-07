@@ -11,7 +11,7 @@ export default function Home() {
   }, [])
 
   const fetchProducts = async () => {
-    const {data} = await fetchDataFromApi('/api/products')
+    const {data} = await fetchDataFromApi("/api/products")
     setData(data)
   }
   return (
